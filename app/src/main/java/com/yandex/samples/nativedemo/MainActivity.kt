@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        nativeInit()
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
     }
@@ -28,5 +29,8 @@ class MainActivity : AppCompatActivity() {
         init {
             System.loadLibrary("native-lib")
         }
+
+        @JvmStatic
+        external fun nativeInit(): Unit
     }
 }
